@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volgo T-Shirt Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Di dalam <head> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<!-- Sebelum </body> -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<body style="background-image: url('pattern.jpg'); background-repeat: repeat;">
+
+  <!-- Header -->
+  <header>
+    <video autoplay loop muted class="logo-video">
+      <source src="logo.mp4" type="video/mp4" />
+      Browser Anda tidak mendukung video.
+    </video>
+    <h2>More Than a Tee, It's a Lifestyle</h2>
+  </header>
+
+  <!-- Produk -->
+  <section class="products">
+    <div class="product">
+      <img src="volgo-black.jpg" alt="Volgo Black" />
+      <h2>Volgo Black</h2>
+      <p>Rp 175.000</p>
+      <p class="product-detail">Kaos hitam elegan dengan bahan premium cotton combed 30s, cocok untuk gaya minimalis sehari-hari.</p>
+      <label>Ukuran:
+        <select class="size-selector">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+      <button onclick="addToCart(this, 'Volgo Black', 175000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="volgo-white.jpg" alt="Volgo White" />
+      <h2>Volgo White</h2>
+      <p>Rp 170.000</p>
+      <p class="product-detail">Kaos hitam elegan dengan bahan premium cotton combed 30s, cocok untuk gaya minimalis sehari-hari.</p>
+      <label>Ukuran:
+        <select class="size-selector">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+      <button onclick="addToCart(this, 'Volgo White', 170000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="volgo-red.jpg" alt="Volgo Red" />
+      <h2>Volgo Red</h2>
+      <p>Rp 172.000</p>
+      <p class="product-detail">Kaos hitam elegan dengan bahan premium cotton combed 30s, cocok untuk gaya minimalis sehari-hari.</p>
+      <label>Ukuran:
+        <select class="size-selector">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+      <button onclick="addToCart(this, 'Volgo Red', 172000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="volgo-mocca.jpg" alt="Volgo Mocca" />
+      <h2>Volgo Mocca</h2>
+      <p>Rp 175.000</p>
+      <p class="product-detail">Kaos hitam elegan dengan bahan premium cotton combed 30s, cocok untuk gaya minimalis sehari-hari.</p>
+      <label>Ukuran:
+        <select class="size-selector">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+      <button onclick="addToCart(this, 'Volgo Mocca', 175000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="volgo-milo.jpg" alt="Volgo Milo" />
+      <h2>Volgo Milo</h2>
+      <p>Rp 175.000</p>
+      <label>Ukuran:
+        <select class="size-selector">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+      <button onclick="addToCart(this, 'Volgo Milo', 175000)">Tambah ke Keranjang</button>
+    </div>
+  </section>
+
+  <!-- Keranjang -->
+  <section class="cart">
+    <h2>Keranjang Belanja</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: Rp <span id="total-price">0</span></p>
+    <button onclick="showCheckout()">Lanjut ke Checkout</button>
+  </section>
+
+  <!-- Checkout -->
+  <section class="checkout" id="checkout-section" style="display: none;">
+    <h2>Checkout</h2>
+    <form id="checkout-form">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" required placeholder="Nama Anda" />
+
+      <label for="address">Alamat Pengiriman</label>
+      <input type="text" id="address" required placeholder="Alamat Anda" />
+
+      <label for="phone">Nomor Telepon</label>
+      <input type="text" id="phone" required placeholder="Nomor Telepon Anda" />
+
+      <h3>Metode Pembayaran</h3>
+      <label><input type="radio" name="payment-method" value="Transfer Bank" required /> Transfer Bank</label><br />
+
+      <button type="submit">Konfirmasi Pembayaran</button>
+    </form>
+
+    <div id="confirmation-info" style="display: none; margin-top: 20px;">
+      <h3>✅ Pesanan Anda berhasil dikirim!</h3>
+      <p>Silakan transfer ke rekening berikut:</p>
+      <p><strong>BCA 1234567890 a.n. PT Volgo Indonesia</strong></p>
+      <p><strong>Total yang harus ditransfer: Rp <span id="total-transfer">0</span></strong></p>
+      <p>Setelah transfer, klik tombol berikut untuk konfirmasi:</p>
+      <a id="wa-link" target="_blank" class="whatsapp-link" style="display: inline-block; padding: 10px 20px; background: green; color: white; text-decoration: none; border-radius: 5px;">Konfirmasi via WhatsApp</a>
+    </div>
+
+    <button id="back-to-store" class="back-button">← Kembali ke Belanja</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>
+        Konfirmasi/Orde
+        <a href="https://wa.me/+6281554331654" target="_blank" class="whatsapp-link">Chat dengan kami di WhatsApp</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("-G_HKWwHYtdCXtBCL");
+
+    let cart = [];
+
+    function addToCart(button, name, price) {
+      const productDiv = button.closest('.product');
+      const size = productDiv.querySelector('.size-selector')?.value || "Default";
+      cart.push({ name, price, size });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const totalPriceElement = document.getElementById("total-price");
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        const li = document.createElement("li");
+        li.innerHTML = `${item.name} (Ukuran: ${item.size}) - Rp ${item.price.toLocaleString()} <button onclick="removeFromCart(${index})">Hapus</button>`;
+        cartItems.appendChild(li);
+      });
+
+      totalPriceElement.textContent = total.toLocaleString();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function showCheckout() {
+      if (cart.length === 0) {
+        alert("Keranjang Anda kosong!");
+        return;
+      }
+      document.querySelector(".cart").style.display = "none";
+      document.getElementById("checkout-section").style.display = "block";
+    }
+
+    document.getElementById("back-to-store").addEventListener("click", () => {
+      document.getElementById("checkout-section").style.display = "none";
+      document.querySelector(".cart").style.display = "block";
+      document.getElementById("checkout-form").style.display = "block";
+      document.getElementById("confirmation-info").style.display = "none";
+    });
+
+    document.getElementById("checkout-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const address = document.getElementById("address").value;
+      const phone = document.getElementById("phone").value;
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+      const cartList = cart.map(item => `${item.name} (Ukuran: ${item.size}) - Rp ${item.price.toLocaleString()}`).join('\n');
+      const totalAmountRaw = cart.reduce((sum, item) => sum + item.price, 0);
+      const totalAmount = totalAmountRaw.toLocaleString();
+
+      emailjs.send("service_adgjl123", "template_adgjl123", {
+        name,
+        address,
+        phone,
+        paymentMethod,
+        cart: cartList
+      }).then(() => {
+        cart = [];
+        updateCart();
+
+        document.getElementById("checkout-form").style.display = "none";
+        document.getElementById("confirmation-info").style.display = "block";
+
+        document.getElementById("total-transfer").textContent = totalAmount;
+
+        const waMessage = encodeURIComponent(`Halo Volgo, saya sudah melakukan pesanan:\n\nNama: ${name}\nAlamat: ${address}\nNomor HP: ${phone}\nPembayaran: ${paymentMethod}\n\nPesanan:\n${cartList}\nTotal: Rp ${totalAmount}`);
+        document.getElementById("wa-link").href = `https://wa.me/6281554331654?text=${waMessage}`;
+      }).catch(err => {
+        console.error("EmailJS Error:", err);
+        alert("Gagal mengirim email.");
+      });
+    });
+  </script>
+</body>
+</html>

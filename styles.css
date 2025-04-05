@@ -1,0 +1,176 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Gunakan satu font saja */
+    text-align: center;
+    background-color: #757474;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px 10px 10px;
+    background-color: rgba(143, 129, 129, 0.571); /* transparan hitam */
+    color: rgb(0, 0, 0);
+    position: relative;
+    backdrop-filter: blur(10px); /* efek blur di belakang */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-video {
+    width: 250px; /* ubah sesuai kebutuhan: 150px, 200px, dll */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 20px; /* opsional, bikin agak membulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* bayangan biar elegan */
+  }
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    text-align: center;
+    width: 300px;
+    padding: 15px;
+}
+
+.product img {
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* Hover effect */
+.product:hover {
+    transform: scale(1.2); /* Kombinasi efek yang masuk akal */
+    box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.cart {
+    margin-top: 30px;
+    background: rgb(251, 249, 237);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+/* Link WhatsApp */
+.whatsapp-link {
+    color: #25D366;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;
+    text-decoration: underline;
+}
+
+/* Checkout Section Styling */
+#checkout-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+#checkout-section h2 {
+    font-size: 1.8rem;
+    color: #111;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#checkout-section p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+#checkout-section strong {
+    color: #007a5c;
+}
+
+form#checkout-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+form#checkout-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    transition: border-color 0.3s ease;
+}
+
+form#checkout-form input:focus {
+    border-color: #007a5c;
+    outline: none;
+}
+
+.payment-options {
+    margin-top: 15px;
+}
+
+.payment-options label {
+    margin-right: 20px;
+}
+
+/* Tombol Submit Checkout */
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #007a5c;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #005f48;
+}
+
+/* Tombol Kembali */
+.back-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ccc;
+}
